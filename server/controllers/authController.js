@@ -1,19 +1,18 @@
-const auth  = require('../models/authModels');
+const {Auth}  = require('../models/authModels');
 const bcrypt = require('bcryptjs'); // Import bcrypt for password hashing
 // Function to handle user registration
 const registerUser = async (req, res) => {
     const { username, email, password } = req.body;
 
     try {
-        const newUser = new auth({ username, email, password });
-        
+        const newUser = new Auth({ username, email, password });
 
-        const existingUser = await auth.findOne({ username });
+        const existingUser = await Auth.findOne({ username });
         if (existingUser) {
             return res.status(400).json({ error: 'Username already exists' });
         }    
         // encrypt password here if needed
-        const existingEmail = await auth.findOne({ email });
+        const existingEmail = await Auth.findOne({ email });
         if (existingEmail) {
             return res.status(400).json({ error: 'Email already exists' });
         }
@@ -33,7 +32,7 @@ const loginUser = async (req, res) => {
     const { email, password } = req.body;
     
     try {
-        const user = await auth.findOne({ email });
+        const user = await Auth.findOne({ email });
         if (!user) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
