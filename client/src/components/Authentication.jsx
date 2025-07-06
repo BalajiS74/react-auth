@@ -92,7 +92,7 @@ function Login() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/login", loginData);
+      const response = await axios.post("https://react-auth-backend-teal.vercel.app/api/auth/login", loginData);
       if (response.status === 200) {
         loginAlert();
       }
@@ -104,7 +104,7 @@ function Login() {
   const handleSignUpSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/register", signUpData);
+      const response = await axios.post("https://react-auth-backend-teal.vercel.app/api/auth/register", signUpData);
       if (response.status === 201) {
         signAlert();
       }
