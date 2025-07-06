@@ -4,7 +4,7 @@ const app = express();
 const cors = require('cors');
 app.use(cors(
   {
-    origin: 'react-auth-frontend-one.vercel.app',
+    origin: 'react-auth-frontend-one.vercel.app/',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
   }
