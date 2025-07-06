@@ -1,4 +1,4 @@
-const {Auth}  = require('../models/authModels');
+const Auth  = require('../models/authModels');
 const bcrypt = require('bcryptjs'); // Import bcrypt for password hashing
 // Function to handle user registration
 const registerUser = async (req, res) => {
