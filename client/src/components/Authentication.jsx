@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 import Swal from "sweetalert2";
 import axios from "axios";
@@ -22,10 +22,6 @@ function Login() {
     email: "",
     password: "",
   });
-
-  // convert alert funtions into switch case
-
-  // to make it more readable and maintainable
   const alertTypes = {
     login: {
       title: "Login Successful",
@@ -97,7 +93,7 @@ function Login() {
         loginAlert();
       }
     } catch (error) {
-      console.error("Login failed:", error);
+      // console.error("Login failed:", error);
       loginErrorAlert();
     }
   };
@@ -109,7 +105,7 @@ function Login() {
         signAlert();
       }
     } catch (error) {
-      console.error("Sign Up failed:", error);
+      // console.error("Sign Up failed:", error);
       signUpErrorAlert();
     }
   };
